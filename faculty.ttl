@@ -1,0 +1,980 @@
+@prefix rvr: <http://example.org/rvrcollege/faculty#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+# -----------------
+# Schema Definitions
+# -----------------
+
+rvr:FacultyMember a owl:Class ;
+    owl:equivalentClass foaf:Person .
+rvr:GuidanceRecord a owl:Class .
+
+# Define object properties (relationships)
+rvr:hasGuidanceRecord a owl:ObjectProperty ;
+    rvr:domain foaf:Person ;
+    rvr:range rvr:GuidanceRecord .
+rvr:guidanceFor a owl:ObjectProperty ;
+    rvr:domain rvr:GuidanceRecord ;
+    rvr:range foaf:Person .
+
+# Define datatype properties (attributes)
+rvr:hasName a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:string .
+rvr:hasDesignation a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:string .
+rvr:hasQualifications a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:string .
+rvr:dateOfJoining a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:date .
+rvr:totalExperience a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:string .
+rvr:areaOfSpecialization a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:string .
+rvr:hasResearchInterests a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:string .
+rvr:totalPublications a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:integer .
+rvr:journalPublications a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:integer .
+rvr:conferencePublications a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:integer .
+rvr:patentsCount a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:integer .
+rvr:hIndexScopus a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:integer .
+rvr:hIndexWebOfScience a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:integer .
+rvr:hIndexGoogleScholar a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:integer .
+rvr:citationScopus a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:integer .
+rvr:citationWebOfScience a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:integer .
+rvr:citationGoogleScholar a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:integer .
+rvr:hasProfessionalMembership a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:string .
+rvr:hasCellNumber a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:long .
+rvr:hasEmail a owl:DatatypeProperty ; rvr:domain foaf:Person ; rvr:range xsd:string .
+rvr:phdAwarded a owl:DatatypeProperty ; rvr:domain rvr:GuidanceRecord ; rvr:range xsd:integer .
+rvr:phdOngoing a owl:DatatypeProperty ; rvr:domain rvr:GuidanceRecord ; rvr:range xsd:integer .
+rvr:mastersGuided a owl:DatatypeProperty ; rvr:domain rvr:GuidanceRecord ; rvr:range xsd:integer .
+rvr:graduatesGuided a owl:DatatypeProperty ; rvr:domain rvr:GuidanceRecord ; rvr:range xsd:integer .
+
+# -----------------
+# Instance Data for All 31 Faculty Entities
+# -----------------
+
+# 1. Dr. Sreelatha Malempati
+rvr:SreelathaMalempati a rvr:FacultyMember ;
+    rvr:hasName "Dr. Sreelatha Malempati" ;
+    rvr:hasDesignation "Professor & HoD" ;
+    rvr:hasQualifications "M.Tech, Ph.D." ;
+    rvr:dateOfJoining "1995-08-09"^^xsd:date ;
+    rvr:totalExperience "30 Y 2 M" ;
+    rvr:areaOfSpecialization "N/A" ;
+    rvr:hasResearchInterests "Data Mining & Security" ;
+    rvr:totalPublications 44^^xsd:integer ;
+    rvr:journalPublications 32^^xsd:integer ;
+    rvr:conferencePublications 12^^xsd:integer ;
+    rvr:patentsCount 1^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "Professional Member ACM India, Life Member ISTE" ;
+    rvr:hasEmail "lathmoturise@gmail.com" ;
+    rvr:hasCellNumber 9490723832 ;
+    rvr:hasGuidanceRecord rvr:SreelathaMalempatiGuidance .
+rvr:SreelathaMalempatiGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:SreelathaMalempati ;
+    rvr:phdAwarded 6^^xsd:integer ;
+    rvr:phdOngoing 7^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 2. Dr. Chaparala Aparna
+rvr:ChaparalaAparna a rvr:FacultyMember ;
+    rvr:hasName "Dr. Chaparala Aparna" ;
+    rvr:hasDesignation "Professor" ;
+    rvr:hasQualifications "Ph.D." ;
+    rvr:dateOfJoining "2004-06-07"^^xsd:date ;
+    rvr:totalExperience "21 Y 4 M" ;
+    rvr:areaOfSpecialization "Databases" ;
+    rvr:hasResearchInterests "Machine Learning, Optimization" ;
+    rvr:totalPublications 4^^xsd:integer ;
+    rvr:journalPublications 3^^xsd:integer ;
+    rvr:conferencePublications 1^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 5^^xsd:integer ;
+    rvr:hIndexWebOfScience 2^^xsd:integer ;
+    rvr:hIndexGoogleScholar 7^^xsd:integer ;
+    rvr:citationScopus 81^^xsd:integer ;
+    rvr:citationWebOfScience 7^^xsd:integer ;
+    rvr:citationGoogleScholar 166^^xsd:integer ;
+    rvr:hasProfessionalMembership "ACM Research Inc: Fremont, CA, US" ;
+    rvr:hasEmail "aparna@rvrjc.ac.in" ;
+    rvr:hasCellNumber 9959785795 ;
+    rvr:hasGuidanceRecord rvr:ChaparalaAparnaGuidance .
+rvr:ChaparalaAparnaGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:ChaparalaAparna ;
+    rvr:phdAwarded 2^^xsd:integer ;
+    rvr:phdOngoing 4^^xsd:integer ;
+    rvr:mastersGuided 16^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 3. Dr. R.lakshmi Tulasi
+rvr:RLakshmiTulasi a rvr:FacultyMember ;
+    rvr:hasName "Dr. R.lakshmi Tulasi" ;
+    rvr:hasDesignation "Professor" ;
+    rvr:hasQualifications "Ph.D (CSE), M.Tech (CSE)" ;
+    rvr:dateOfJoining "2018-07-05"^^xsd:date ;
+    rvr:totalExperience "7 Y 3 M" ;
+    rvr:areaOfSpecialization "CSE" ;
+    rvr:hasResearchInterests "Information Retrieval, Machine Learning" ;
+    rvr:totalPublications 49^^xsd:integer ;
+    rvr:journalPublications 36^^xsd:integer ;
+    rvr:conferencePublications 13^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "Professional Member, ACM India Life Member, Indian Society for Technical Education Life member, International Association of Computer Science and Information Technology" ;
+    rvr:hasEmail "rltulasi.2002@gmail.com" ;
+    rvr:hasCellNumber 9440823573 ;
+    rvr:hasGuidanceRecord rvr:RLakshmiTulasiGuidance .
+rvr:RLakshmiTulasiGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:RLakshmiTulasi ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 30^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 4. Dr. Boyapati Varaprasad Rao
+rvr:BoyapatiVaraprasadRao a rvr:FacultyMember ;
+    rvr:hasName "Dr. Boyapati Varaprasad Rao" ;
+    rvr:hasDesignation "Professor" ;
+    rvr:hasQualifications "M.Tech, Ph.D" ;
+    rvr:dateOfJoining "2006-06-30"^^xsd:date ;
+    rvr:totalExperience "19 Y 3 M" ;
+    rvr:areaOfSpecialization "N/A" ;
+    rvr:hasResearchInterests "Image Processing & Machine Learning" ;
+    rvr:totalPublications 16^^xsd:integer ;
+    rvr:journalPublications 15^^xsd:integer ;
+    rvr:conferencePublications 1^^xsd:integer ;
+    rvr:patentsCount 1^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "Member, International Association of Engineers" ;
+    rvr:hasEmail "boyapativaraprasad@gmail.com" ;
+    rvr:hasCellNumber 9849727799 ;
+    rvr:hasGuidanceRecord rvr:BoyapatiVaraprasadRaoGuidance .
+rvr:BoyapatiVaraprasadRaoGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:BoyapatiVaraprasadRao ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 14^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 5. Dr. Meda Srikanth
+rvr:MedaSrikanth a rvr:FacultyMember ;
+    rvr:hasName "Dr. Meda Srikanth" ;
+    rvr:hasDesignation "Professor" ;
+    rvr:hasQualifications "M.Tech, Ph.D" ;
+    rvr:dateOfJoining "2006-02-08"^^xsd:date ;
+    rvr:totalExperience "19 Y 8 M" ;
+    rvr:areaOfSpecialization "Machine Learning" ;
+    rvr:hasResearchInterests "Machine Learning" ;
+    rvr:totalPublications 22^^xsd:integer ;
+    rvr:journalPublications 19^^xsd:integer ;
+    rvr:conferencePublications 3^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "Professional Member, ACM India" ;
+    rvr:hasEmail "medasrikanth@gmail.com" ;
+    rvr:hasCellNumber 9618455466 ;
+    rvr:hasGuidanceRecord rvr:MedaSrikanthGuidance .
+rvr:MedaSrikanthGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:MedaSrikanth ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 10^^xsd:integer ;
+    rvr:graduatesGuided 40^^xsd:integer .
+
+# 6. Sri. Chekka Ratna Babu
+rvr:ChekkaRatnaBabu a rvr:FacultyMember ;
+    rvr:hasName "Sri. Chekka Ratna Babu" ;
+    rvr:hasDesignation "Associate Professor" ;
+    rvr:hasQualifications "M.Tech(Ph.D)" ;
+    rvr:dateOfJoining "2003-11-25"^^xsd:date ;
+    rvr:totalExperience "21 Y 11 M" ;
+    rvr:areaOfSpecialization "CSE" ;
+    rvr:hasResearchInterests "Information & Cyber Security" ;
+    rvr:totalPublications 0^^xsd:integer ;
+    rvr:journalPublications 0^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 1^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "N/A" ;
+    rvr:hasEmail "chekka.ratnababu@gmail.com" ;
+    rvr:hasCellNumber 96656239621 ;
+    rvr:hasGuidanceRecord rvr:ChekkaRatnaBabuGuidance .
+rvr:ChekkaRatnaBabuGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:ChekkaRatnaBabu ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 16^^xsd:integer ;
+    rvr:graduatesGuided 68^^xsd:integer .
+
+# 7. Dr. S.J.R.K Padminivalli V
+rvr:SJRkPadminivalliV a rvr:FacultyMember ;
+    rvr:hasName "Dr. S.J.R.K Padminivalli V" ;
+    rvr:hasDesignation "Associate Professor" ;
+    rvr:hasQualifications "M.Tech, Ph.D." ;
+    rvr:dateOfJoining "2011-08-01"^^xsd:date ;
+    rvr:totalExperience "14 Y 2 M" ;
+    rvr:areaOfSpecialization "CSE" ;
+    rvr:hasResearchInterests "Sentiment Analysis, Text Mining" ;
+    rvr:totalPublications 13^^xsd:integer ;
+    rvr:journalPublications 11^^xsd:integer ;
+    rvr:conferencePublications 2^^xsd:integer ;
+    rvr:patentsCount 2^^xsd:integer ;
+    rvr:hIndexScopus 2^^xsd:integer ;
+    rvr:hIndexWebOfScience 1^^xsd:integer ;
+    rvr:hIndexGoogleScholar 2^^xsd:integer ;
+    rvr:citationScopus 5^^xsd:integer ;
+    rvr:citationWebOfScience 2^^xsd:integer ;
+    rvr:citationGoogleScholar 10^^xsd:integer ;
+    rvr:hasProfessionalMembership "IAENG" ;
+    rvr:hasEmail "srivalliasantham@rvrjc.ac.in" ;
+    rvr:hasCellNumber 9490723832 ;
+    rvr:hasGuidanceRecord rvr:SJRkPadminivalliVGuidance .
+rvr:SJRkPadminivalliVGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:SJRkPadminivalliV ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 5^^xsd:integer ;
+    rvr:graduatesGuided 42^^xsd:integer .
+
+# 8. Dr. G. Srinivasa Rao
+rvr:GSrinivasaRao a rvr:FacultyMember ;
+    rvr:hasName "Dr. G. Srinivasa Rao" ;
+    rvr:hasDesignation "Associate Professor" ;
+    rvr:hasQualifications "Ph.D" ;
+    rvr:dateOfJoining "2025-05-01"^^xsd:date ;
+    rvr:totalExperience "0 Y 5 M" ;
+    rvr:areaOfSpecialization "Pattern Recognition" ;
+    rvr:hasResearchInterests "N/A" ;
+    rvr:totalPublications 0^^xsd:integer ;
+    rvr:journalPublications 0^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "N/A" ;
+    rvr:hasEmail "gsrao4u@gmail.com" ;
+    rvr:hasCellNumber 9632414143 ;
+    rvr:hasGuidanceRecord rvr:GSrinivasaRaoGuidance .
+rvr:GSrinivasaRaoGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:GSrinivasaRao ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 9. Dr. Zarapala Sunitha Bai
+rvr:ZarapalaSunithaBai a rvr:FacultyMember ;
+    rvr:hasName "Dr. Zarapala Sunitha Bai" ;
+    rvr:hasDesignation "Associate Professor" ;
+    rvr:hasQualifications "M.Tech, Ph.D." ;
+    rvr:dateOfJoining "2012-07-09"^^xsd:date ;
+    rvr:totalExperience "13 Y 3 M" ;
+    rvr:areaOfSpecialization "Text Mining ,Machine Learning" ;
+    rvr:hasResearchInterests "Text Mining" ;
+    rvr:totalPublications 3^^xsd:integer ;
+    rvr:journalPublications 3^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 1^^xsd:integer ;
+    rvr:hIndexScopus 2^^xsd:integer ;
+    rvr:hIndexWebOfScience 1^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 9^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "N/A" ;
+    rvr:hasEmail "zsunithabai@gmail.com" ;
+    rvr:hasCellNumber 7013543766 ;
+    rvr:hasGuidanceRecord rvr:ZarapalaSunithaBaiGuidance .
+rvr:ZarapalaSunithaBaiGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:ZarapalaSunithaBai ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 8^^xsd:integer ;
+    rvr:graduatesGuided 18^^xsd:integer .
+
+# 10. Dr. Paladugu Rama Krishna
+rvr:PaladuguRamaKrishna a rvr:FacultyMember ;
+    rvr:hasName "Dr. Paladugu Rama Krishna" ;
+    rvr:hasDesignation "Associate Professor" ;
+    rvr:hasQualifications "M.Tech, Ph.D" ;
+    rvr:dateOfJoining "2014-09-04"^^xsd:date ;
+    rvr:totalExperience "11 Y 1 M" ;
+    rvr:areaOfSpecialization "Machine Learning" ;
+    rvr:hasResearchInterests "Machine Learning" ;
+    rvr:totalPublications 4^^xsd:integer ;
+    rvr:journalPublications 4^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 1^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "N/A" ;
+    rvr:hasEmail "mails4prk@gmail.com" ;
+    rvr:hasCellNumber 7989660189 ;
+    rvr:hasGuidanceRecord rvr:PaladuguRamaKrishnaGuidance .
+rvr:PaladuguRamaKrishnaGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:PaladuguRamaKrishna ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 11. Dr. Bhagya Lakshmi Nandipati
+rvr:BhagyaLakshmiNandipati a rvr:FacultyMember ;
+    rvr:hasName "Dr. Bhagya Lakshmi Nandipati" ;
+    rvr:hasDesignation "Associate Professor" ;
+    rvr:hasQualifications "M.Tech, Ph.D." ;
+    rvr:dateOfJoining "2024-04-01"^^xsd:date ;
+    rvr:totalExperience "1 Y 6 M" ;
+    rvr:areaOfSpecialization "CSE" ;
+    rvr:hasResearchInterests "Machine Learning, Deep Learning and Optimization Techniques" ;
+    rvr:totalPublications 14^^xsd:integer ;
+    rvr:journalPublications 10^^xsd:integer ;
+    rvr:conferencePublications 4^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "ACM Membership" ;
+    rvr:hasEmail "bhagyait@gmail.com" ;
+    rvr:hasCellNumber 7093377203 ;
+    rvr:hasGuidanceRecord rvr:BhagyaLakshmiNandipatiGuidance .
+rvr:BhagyaLakshmiNandipatiGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:BhagyaLakshmiNandipati ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 12. Sri. Eluri Ramesh
+rvr:EluriRamesh a rvr:FacultyMember ;
+    rvr:hasName "Sri. Eluri Ramesh" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.Tech(Ph.D)" ;
+    rvr:dateOfJoining "2006-02-08"^^xsd:date ;
+    rvr:totalExperience "19 Y 8 M" ;
+    rvr:areaOfSpecialization "CSE" ;
+    rvr:hasResearchInterests "Internet of Things" ;
+    rvr:totalPublications 0^^xsd:integer ;
+    rvr:journalPublications 0^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 1^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "ACM ISTE" ;
+    rvr:hasEmail "eluri.r@yahoo.com" ;
+    rvr:hasCellNumber 9492120315 ;
+    rvr:hasGuidanceRecord rvr:EluriRameshGuidance .
+rvr:EluriRameshGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:EluriRamesh ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 6^^xsd:integer ;
+    rvr:graduatesGuided 40^^xsd:integer .
+
+# 13. Smt. Mandadi Vasavi
+rvr:MandadiVasavi a rvr:FacultyMember ;
+    rvr:hasName "Smt. Mandadi Vasavi" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.Tech" ;
+    rvr:dateOfJoining "2007-05-23"^^xsd:date ;
+    rvr:totalExperience "18 Y 5 M" ;
+    rvr:areaOfSpecialization "CSE" ;
+    rvr:hasResearchInterests "Knowledge and Data Engineering" ;
+    rvr:totalPublications 7^^xsd:integer ;
+    rvr:journalPublications 7^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 2^^xsd:integer ;
+    rvr:hIndexScopus 2^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 3^^xsd:integer ;
+    rvr:citationScopus 5^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 18^^xsd:integer ;
+    rvr:hasProfessionalMembership "ACM, IAENG" ;
+    rvr:hasEmail "vasavilari@gmail.com" ;
+    rvr:hasCellNumber 9490114243 ;
+    rvr:hasGuidanceRecord rvr:MandadiVasaviGuidance .
+rvr:MandadiVasaviGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:MandadiVasavi ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 2^^xsd:integer ;
+    rvr:graduatesGuided 12^^xsd:integer .
+
+# 14. Mr Mabubasha
+rvr:Mabubasha a rvr:FacultyMember ;
+    rvr:hasName "Mr Mabubasha" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.TECH" ;
+    rvr:dateOfJoining "2008-08-25"^^xsd:date ;
+    rvr:totalExperience "17 Y 1 M" ;
+    rvr:areaOfSpecialization "SOFTWARE ENGINEERING" ;
+    rvr:hasResearchInterests "SOFTWARE ENGINEERING" ;
+    rvr:totalPublications 0^^xsd:integer ;
+    rvr:journalPublications 0^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "N/A" ;
+    rvr:hasEmail "mabubashar@gmail.com" ;
+    rvr:hasCellNumber 7033543766 ;
+    rvr:hasGuidanceRecord rvr:MabubashaGuidance .
+rvr:MabubashaGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:Mabubasha ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 15. Sri. Pulicherla Siva Prasad
+rvr:PulicherlaSivaPrasad a rvr:FacultyMember ;
+    rvr:hasName "Sri. Pulicherla Siva Prasad" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.Tech(PhD)" ;
+    rvr:dateOfJoining "2008-02-01"^^xsd:date ;
+    rvr:totalExperience "17 Y 8 M" ;
+    rvr:areaOfSpecialization "N/A" ;
+    rvr:hasResearchInterests "N/A" ;
+    rvr:totalPublications 1^^xsd:integer ;
+    rvr:journalPublications 0^^xsd:integer ;
+    rvr:conferencePublications 1^^xsd:integer ;
+    rvr:patentsCount 1^^xsd:integer ;
+    rvr:hIndexScopus 2^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 4^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "ACM" ;
+    rvr:hasEmail "prasadsiva_17@yahoo.in" ;
+    rvr:hasCellNumber 9866093651 ;
+    rvr:hasGuidanceRecord rvr:PulicherlaSivaPrasadGuidance .
+rvr:PulicherlaSivaPrasadGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:PulicherlaSivaPrasad ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 16. Sri. Madamanchi Brahmaiah
+rvr:MadamanchiBrahmaiah a rvr:FacultyMember ;
+    rvr:hasName "Sri. Madamanchi Brahmaiah" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.TECH(CSE)" ;
+    rvr:dateOfJoining "2010-07-01"^^xsd:date ;
+    rvr:totalExperience "15 Y 3 M" ;
+    rvr:areaOfSpecialization "COMPUTER SCIENCE" ;
+    rvr:hasResearchInterests "AI AND ML" ;
+    rvr:totalPublications 10^^xsd:integer ;
+    rvr:journalPublications 9^^xsd:integer ;
+    rvr:conferencePublications 1^^xsd:integer ;
+    rvr:patentsCount 1^^xsd:integer ;
+    rvr:hIndexScopus 1^^xsd:integer ;
+    rvr:hIndexWebOfScience 1^^xsd:integer ;
+    rvr:hIndexGoogleScholar 1^^xsd:integer ;
+    rvr:citationScopus 2^^xsd:integer ;
+    rvr:citationWebOfScience 1^^xsd:integer ;
+    rvr:citationGoogleScholar 1^^xsd:integer ;
+    rvr:hasProfessionalMembership "IAENG, SDIWC" ;
+    rvr:hasEmail "madamanchib@gmail.com" ;
+    rvr:hasCellNumber 9490437560 ;
+    rvr:hasGuidanceRecord rvr:MadamanchiBrahmaiahGuidance .
+rvr:MadamanchiBrahmaiahGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:MadamanchiBrahmaiah ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 17. Smt. Zareena Noorbasha
+rvr:ZareenaNoorbasha a rvr:FacultyMember ;
+    rvr:hasName "Smt. Zareena Noorbasha" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.Tech(Phd)" ;
+    rvr:dateOfJoining "2017-06-09"^^xsd:date ;
+    rvr:totalExperience "8 Y 4 M" ;
+    rvr:areaOfSpecialization "CSE" ;
+    rvr:hasResearchInterests "Machine Learning" ;
+    rvr:totalPublications 4^^xsd:integer ;
+    rvr:journalPublications 3^^xsd:integer ;
+    rvr:conferencePublications 1^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 1^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 14^^xsd:integer ;
+    rvr:hasProfessionalMembership "ACM,IAENG,SDIWC" ;
+    rvr:hasEmail "zareenaesc@gmail.com" ;
+    rvr:hasCellNumber 9848410430 ;
+    rvr:hasGuidanceRecord rvr:ZareenaNoorbashaGuidance .
+rvr:ZareenaNoorbashaGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:ZareenaNoorbasha ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 20^^xsd:integer .
+
+# 18. Ms Paruchuri Anuradha
+rvr:ParuchuriAnuradha a rvr:FacultyMember ;
+    rvr:hasName "Ms Paruchuri Anuradha" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.Tech" ;
+    rvr:dateOfJoining "2018-07-23"^^xsd:date ;
+    rvr:totalExperience "7 Y 2 M" ;
+    rvr:areaOfSpecialization "N/A" ;
+    rvr:hasResearchInterests "Big Data Analytics, Data Mining." ;
+    rvr:totalPublications 0^^xsd:integer ;
+    rvr:journalPublications 0^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "N/A" ;
+    rvr:hasEmail "paruchuri.anuradha@gmail.com" ;
+    rvr:hasCellNumber 8885416839 ;
+    rvr:hasGuidanceRecord rvr:ParuchuriAnuradhaGuidance .
+rvr:ParuchuriAnuradhaGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:ParuchuriAnuradha ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 19. Sri. Sajja Karthik
+rvr:SajjaKarthik a rvr:FacultyMember ;
+    rvr:hasName "Sri. Sajja Karthik" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.Tech" ;
+    rvr:dateOfJoining "2019-07-18"^^xsd:date ;
+    rvr:totalExperience "6 Y 3 M" ;
+    rvr:areaOfSpecialization "N/A" ;
+    rvr:hasResearchInterests "N/A" ;
+    rvr:totalPublications 3^^xsd:integer ;
+    rvr:journalPublications 3^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 2^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 4^^xsd:integer ;
+    rvr:citationWebOfScience 4^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "N/A" ;
+    rvr:hasEmail "sajjakarthik@rvrjc.ac.in" ;
+    rvr:hasCellNumber 9959785795 ;
+    rvr:hasGuidanceRecord rvr:SajjaKarthikGuidance .
+rvr:SajjaKarthikGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:SajjaKarthik ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 20. Ms Shaik Jannathul Fridosh
+rvr:ShaikJannathulFridosh a rvr:FacultyMember ;
+    rvr:hasName "Ms Shaik Jannathul Fridosh" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.Tech" ;
+    rvr:dateOfJoining "2020-06-09"^^xsd:date ;
+    rvr:totalExperience "5 Y 4 M" ;
+    rvr:areaOfSpecialization "N/A" ;
+    rvr:hasResearchInterests "N/A" ;
+    rvr:totalPublications 0^^xsd:integer ;
+    rvr:journalPublications 0^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "N/A" ;
+    rvr:hasEmail "shaikjannathulfridosh@gmail.com" ;
+    rvr:hasCellNumber 8919640151 ;
+    rvr:hasGuidanceRecord rvr:ShaikJannathulFridoshGuidance .
+rvr:ShaikJannathulFridoshGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:ShaikJannathulFridosh ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 21. Mr Veravalli Chakravarthi
+rvr:VeravalliChakravarthi a rvr:FacultyMember ;
+    rvr:hasName "Mr Veravalli Chakravarthi" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.Tech" ;
+    rvr:dateOfJoining "2020-11-06"^^xsd:date ;
+    rvr:totalExperience "4 Y 11 M" ;
+    rvr:areaOfSpecialization "N/A" ;
+    rvr:hasResearchInterests "N/A" ;
+    rvr:totalPublications 0^^xsd:integer ;
+    rvr:journalPublications 0^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "N/A" ;
+    rvr:hasEmail "vchakra4u@gmail.com" ;
+    rvr:hasCellNumber 9963839302 ;
+    rvr:hasGuidanceRecord rvr:VeravalliChakravarthiGuidance .
+rvr:VeravalliChakravarthiGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:VeravalliChakravarthi ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 22. Smt. Gaddam Mounika
+rvr:GaddamMounika a rvr:FacultyMember ;
+    rvr:hasName "Smt. Gaddam Mounika" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.Tech (CSE)" ;
+    rvr:dateOfJoining "2022-06-23"^^xsd:date ;
+    rvr:totalExperience "3 Y 3 M" ;
+    rvr:areaOfSpecialization "Computer Science & Engineering" ;
+    rvr:hasResearchInterests "Cloud Computing, Artificial Intelligence, Deep Learning & Data Mining" ;
+    rvr:totalPublications 2^^xsd:integer ;
+    rvr:journalPublications 2^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 1^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "IAENG-376878" ;
+    rvr:hasEmail "gaddam.mounika220@gmail.com" ;
+    rvr:hasCellNumber 8500737013 ;
+    rvr:hasGuidanceRecord rvr:GaddamMounikaGuidance .
+rvr:GaddamMounikaGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:GaddamMounika ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 23. Mrs. Medikonduru Maithili Saisree
+rvr:MedikonduruMaithiliSaisree a rvr:FacultyMember ;
+    rvr:hasName "Mrs. Medikonduru Maithili Saisree" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.Tech" ;
+    rvr:dateOfJoining "2022-07-04"^^xsd:date ;
+    rvr:totalExperience "3 Y 3 M" ;
+    rvr:areaOfSpecialization "CSE" ;
+    rvr:hasResearchInterests "Soft Computing, DeepLearning, DataMining" ;
+    rvr:totalPublications 0^^xsd:integer ;
+    rvr:journalPublications 0^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "N/A" ;
+    rvr:hasEmail "mvsaisree@gmail.com" ;
+    rvr:hasCellNumber 73825684307 ;
+    rvr:hasGuidanceRecord rvr:MedikonduruMaithiliSaisreeGuidance .
+rvr:MedikonduruMaithiliSaisreeGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:MedikonduruMaithiliSaisree ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 24. Mr. Nimmagadda Chandra Sekhar
+rvr:NimmagaddaChandraSekhar a rvr:FacultyMember ;
+    rvr:hasName "Mr. Nimmagadda Chandra Sekhar" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.Tech (CSE)" ;
+    rvr:dateOfJoining "2022-07-01"^^xsd:date ;
+    rvr:totalExperience "3 Y 3 M" ;
+    rvr:areaOfSpecialization "N/A" ;
+    rvr:hasResearchInterests "Artificial Intelligence, Soft Computing, Deep Learning." ;
+    rvr:totalPublications 2^^xsd:integer ;
+    rvr:journalPublications 2^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "IAENG: 380509" ;
+    rvr:hasEmail "nimmagadda65@gmail.com" ;
+    rvr:hasCellNumber 9160418145 ;
+    rvr:hasGuidanceRecord rvr:NimmagaddaChandraSekharGuidance .
+rvr:NimmagaddaChandraSekharGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:NimmagaddaChandraSekhar ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 9^^xsd:integer .
+
+# 25. Smt. Alekhya Kancharla
+rvr:AlekhyaKancharla a rvr:FacultyMember ;
+    rvr:hasName "Smt. Alekhya Kancharla" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.Tech (CSE)" ;
+    rvr:dateOfJoining "2024-03-20"^^xsd:date ;
+    rvr:totalExperience "1 Y 7 M" ;
+    rvr:areaOfSpecialization "N/A" ;
+    rvr:hasResearchInterests "N/A" ;
+    rvr:totalPublications 0^^xsd:integer ;
+    rvr:journalPublications 0^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "IAENG(290887),ISTE(LM 134127)" ;
+    rvr:hasEmail "alekhyamca@gmail.com" ;
+    rvr:hasCellNumber 6303868992 ;
+    rvr:hasGuidanceRecord rvr:AlekhyaKancharlaGuidance .
+rvr:AlekhyaKancharlaGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:AlekhyaKancharla ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 26. Smt Jyothi Kameswari U
+rvr:JyothiKameswariU a rvr:FacultyMember ;
+    rvr:hasName "Smt Jyothi Kameswari U" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.Tech" ;
+    rvr:dateOfJoining "2024-06-12"^^xsd:date ;
+    rvr:totalExperience "1 Y 4 M" ;
+    rvr:areaOfSpecialization "N/A" ;
+    rvr:hasResearchInterests "N/A" ;
+    rvr:totalPublications 0^^xsd:integer ;
+    rvr:journalPublications 0^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "N/A" ;
+    rvr:hasEmail "kjyohti2010@gmail.com" ;
+    rvr:hasCellNumber 9490114243 ;
+    rvr:hasGuidanceRecord rvr:JyothiKameswariUGuidance .
+rvr:JyothiKameswariUGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:JyothiKameswariU ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 27. Smt Dhanekula Tejaswini
+rvr:DhanekulaTejaswini a rvr:FacultyMember ;
+    rvr:hasName "Smt Dhanekula Tejaswini" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.Tech" ;
+    rvr:dateOfJoining "2024-06-12"^^xsd:date ;
+    rvr:totalExperience "1 Y 4 M" ;
+    rvr:areaOfSpecialization "N/A" ;
+    rvr:hasResearchInterests "N/A" ;
+    rvr:totalPublications 0^^xsd:integer ;
+    rvr:journalPublications 0^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "N/A" ;
+    rvr:hasEmail "tejedanekula@gmail.com" ;
+    rvr:hasCellNumber 7382568502 ;
+    rvr:hasGuidanceRecord rvr:DhanekulaTejaswiniGuidance .
+rvr:DhanekulaTejaswiniGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:DhanekulaTejaswini ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 28. Mr. V K Pavankumar Padavala
+rvr:VKPavankumarPadavala a rvr:FacultyMember ;
+    rvr:hasName "Mr. V K Pavankumar Padavala" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.Tech" ;
+    rvr:dateOfJoining "2025-04-24"^^xsd:date ;
+    rvr:totalExperience "0 Y 5 M" ;
+    rvr:areaOfSpecialization "N/A" ;
+    rvr:hasResearchInterests "N/A" ;
+    rvr:totalPublications 0^^xsd:integer ;
+    rvr:journalPublications 0^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "N/A" ;
+    rvr:hasEmail "pavankpadavala2024@gmail.com" ;
+    rvr:hasCellNumber 9944037560 ;
+    rvr:hasGuidanceRecord rvr:VKPavankumarPadavalaGuidance .
+rvr:VKPavankumarPadavalaGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:VKPavankumarPadavala ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 29. Mr. Maddala Koteswara Rao
+rvr:MaddalaKoteswaraRao a rvr:FacultyMember ;
+    rvr:hasName "Mr. Maddala Koteswara Rao" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.Tech(Ph.D)" ;
+    rvr:dateOfJoining "2025-05-15"^^xsd:date ;
+    rvr:totalExperience "0 Y 5 M" ;
+    rvr:areaOfSpecialization "Machine Learning" ;
+    rvr:hasResearchInterests "Machine Learning" ;
+    rvr:totalPublications 2^^xsd:integer ;
+    rvr:journalPublications 2^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "IAENG" ;
+    rvr:hasEmail "mkoti.520@gmail.com" ;
+    rvr:hasCellNumber 9573737180 ;
+    rvr:hasGuidanceRecord rvr:MaddalaKoteswaraRaoGuidance .
+rvr:MaddalaKoteswaraRaoGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:MaddalaKoteswaraRao ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 30. Mr. Nagulmeera Sayyed
+rvr:NagulmeeraSayyed a rvr:FacultyMember ;
+    rvr:hasName "Mr. Nagulmeera Sayyed" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.Tech, (Ph.D)" ;
+    rvr:dateOfJoining "2025-05-19"^^xsd:date ;
+    rvr:totalExperience "0 Y 5 M" ;
+    rvr:areaOfSpecialization "Cloud Computing" ;
+    rvr:hasResearchInterests "Cloud IoT services" ;
+    rvr:totalPublications 0^^xsd:integer ;
+    rvr:journalPublications 0^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "N/A" ;
+    rvr:hasEmail "sdnagul@gmail.com" ;
+    rvr:hasCellNumber 9030405226 ;
+    rvr:hasGuidanceRecord rvr:NagulmeeraSayyedGuidance .
+rvr:NagulmeeraSayyedGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:NagulmeeraSayyed ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 0^^xsd:integer .
+
+# 31. Sri Krosuri Siva Prasada Rao
+rvr:KrosuriSivaPrasadaRao a rvr:FacultyMember ;
+    rvr:hasName "Sri Krosuri Siva Prasada Rao" ;
+    rvr:hasDesignation "Assistant Professor" ;
+    rvr:hasQualifications "M.Tech." ;
+    rvr:dateOfJoining "2011-10-31"^^xsd:date ;
+    rvr:totalExperience "13 Y 11 M" ;
+    rvr:areaOfSpecialization "Blockchain and Cyber Security" ;
+    rvr:hasResearchInterests "Cryptography and network security, data structures and algorithms" ;
+    rvr:totalPublications 0^^xsd:integer ;
+    rvr:journalPublications 0^^xsd:integer ;
+    rvr:conferencePublications 0^^xsd:integer ;
+    rvr:patentsCount 0^^xsd:integer ;
+    rvr:hIndexScopus 0^^xsd:integer ;
+    rvr:hIndexWebOfScience 0^^xsd:integer ;
+    rvr:hIndexGoogleScholar 0^^xsd:integer ;
+    rvr:citationScopus 0^^xsd:integer ;
+    rvr:citationWebOfScience 0^^xsd:integer ;
+    rvr:citationGoogleScholar 0^^xsd:integer ;
+    rvr:hasProfessionalMembership "IICHE" ;
+    rvr:hasEmail "sivakrosuri@gmail.com" ;
+    rvr:hasCellNumber 9669404920 ;
+    rvr:hasGuidanceRecord rvr:KrosuriSivaPrasadaRaoGuidance .
+rvr:KrosuriSivaPrasadaRaoGuidance a rvr:GuidanceRecord ;
+    rvr:guidanceFor rvr:KrosuriSivaPrasadaRao ;
+    rvr:phdAwarded 0^^xsd:integer ;
+    rvr:phdOngoing 0^^xsd:integer ;
+    rvr:mastersGuided 0^^xsd:integer ;
+    rvr:graduatesGuided 20^^xsd:integer .
